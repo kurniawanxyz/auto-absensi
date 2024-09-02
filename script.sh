@@ -1,5 +1,10 @@
 #!/bin/bash
 
+timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+log_file="/home/kurniawan/Documents/Project/auto-absensi-pkl/absensi.log"
+
+echo "$timestamp - Script started" >> "$log_file"
+
 url="https://pkl.smkn1mejayan.sch.id/api/absensi/hadir"
 api_key="fb9f678f7c44e621e56e8bc025201158"
 body='{
@@ -8,17 +13,25 @@ body='{
     "lon": "106.93250060385081"
 }'
 
-response=$(curl -s -o /dev/null -w "%{http_code}" -X POST $url \
+response=$(curl -s -X POST $url \
     -H "Content-Type: application/json" \
     -H "x-api-key: $api_key" \
     -d "$body")
 
-timestamp=$(date +"%Y-%m-%d %H:%M:%S")
-log_file="./absensi.log"
+# Log the raw response
+echo "$timestamp - API response: $response" >> "$log_file"
 
-if [ "$response" -eq 200 ]; then
+# Extract success and message fields from the response
+success=$(echo $response | /usr/bin/jq -r '.success')
+message=$(echo $response | /usr/bin/jq -r '.message')
+
+if [ "$success" = "true" ]; then
     echo "$timestamp - Absensi berhasil dikirim." >> "$log_file"
 else
-    echo "$timestamp - Gagal mengirim absensi. Status code: $response" >> "$log_file"
+    echo "$timestamp - Gagal mengirim absensi. Pesan: $message" >> "$log_file"
 fi
+
+echo "$timestamp - Script ended" >> "$log_file"
+
+
 

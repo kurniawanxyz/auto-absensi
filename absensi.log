@@ -1,0 +1,11 @@
+2024-09-02 08:08:09 - Gagal mengirim absensi. Status code: 403
+2024-09-02 08:13:44 - Gagal mengirim absensi. Pesan: 
+2024-09-02 08:14:33 - Gagal mengirim absensi. Pesan: Anda sudah absen!
+2024-09-02 08:22:58 - Script started
+2024-09-02 08:22:58 - API response: {"success":false,"message":"Anda sudah absen!"}
+2024-09-02 08:22:58 - Gagal mengirim absensi. Pesan: Anda sudah absen!
+2024-09-02 08:22:58 - Script ended
+2024-09-02 08:26:00 - Script started
+2024-09-02 08:26:00 - API response: {"success":false,"message":"Anda sudah absen!"}
+2024-09-02 08:26:00 - Gagal mengirim absensi. Pesan: Anda sudah absen!
+2024-09-02 08:26:00 - Script ended
