@@ -1,12 +1,12 @@
 #!/bin/bash
 
 timestamp=$(date +"%Y-%m-%d %H:%M:%S")
-log_file="/home/kurniawan/Documents/Project/auto-absensi-pkl/absensi.log"
+log_file="/home/kurniawan/Productions/auto-absensi/absensi.log"
 
 echo "$timestamp - Script started" >> "$log_file"
 
 url="https://pkl.smkn1mejayan.sch.id/api/absensi/hadir"
-api_key="fb9f678f7c44e621e56e8bc025201158"
+api_key=""
 body='{
     "user_id": "87c02a43-2cf5-4aa6-8de8-5d51f991d791",
     "lat": "-6.186052851510576",
